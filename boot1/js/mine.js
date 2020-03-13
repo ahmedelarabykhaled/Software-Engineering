@@ -1,5 +1,13 @@
 
 
+$('a').attr('target','_blank');
+
+
+setTimeout(
+  function() 
+  {
+    $('.message').slideUp(1000);
+  }, 1000);
 
 var typed = new Typed('#typed', {
     strings: ['web design','web development'],
@@ -7,7 +15,7 @@ var typed = new Typed('#typed', {
     typeSpeed: 50
   });
 
-
+/*
 $('.first').owlCarousel({
     loop:true,
     margin:10,
@@ -23,13 +31,15 @@ $('.second').owlCarousel({
     margin:10,
 });
 
+*/
 
 
 var about = $('.block2').position();
 var services = $('.block3').position();
 var works = $('.block5').position();
-var blog = $('.block6').position();
+var skills = $('.skills').position();
 var contact = $('.block8').position();
+
 
 // determin which div on scroll and take action on navbar
 $(window).scroll(function(){
@@ -62,7 +72,7 @@ $(window).scroll(function(){
     	$('#services').addClass('active');
     }
 
-    if (scrollPos >= works.top && scrollPos < blog.top) {
+    if (scrollPos >= works.top && scrollPos < skills.top) {
     	$('.navbar').css('position','fixed','z-index','1000');
     	$('.navbar-expand-lg').css('width','100%');
     	$('.prop').css('left','0px');
@@ -72,13 +82,13 @@ $(window).scroll(function(){
     }
 
 
-    if (scrollPos >= blog.top && scrollPos < contact.top) {
+    if (scrollPos >= skills.top && scrollPos < contact.top) {
     	$('.navbar').css('position','fixed','z-index','1000');
     	$('.navbar-expand-lg').css('width','100%');
     	$('.prop').css('left','0px');
     	$('.navbar').addClass('prop');
     	$('.navbar-nav li').removeClass('active');
-    	$('#blog').addClass('active');
+    	$('#skills').addClass('active');
     }
 
     if (scrollPos > contact.top) {
@@ -94,7 +104,7 @@ $(window).scroll(function(){
 // smoothy scroll for every div
 $(document).ready(function(){
   $(".block1 .navbar-nav .nav-item a").on('click', function(event) {
-    object = {Home:'block1' , About:'block2' , Services:'block3',Works:'block5',Blog:'block6',Contact:'block8'} ;
+    object = {Home:'block1' , About:'block2' , Services:'block3',Works:'block5',Skills:'skills',Contact:'block8'} ;
     if (this.innerHTML !== "") {
       event.preventDefault();
       var hash = object[this.innerHTML];
